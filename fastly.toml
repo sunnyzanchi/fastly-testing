@@ -1,0 +1,28 @@
+# This file describes a Fastly Compute@Edge package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
+authors = [""]
+description = ""
+language = "javascript"
+manifest_version = 2
+name = "fastly-testing-js"
+service_id = "s7Ze10may6syDou6p8AGv0"
+
+[local_server]
+
+  [local_server.backends]
+
+    [local_server.backends.docs_en]
+      url = "https://docswebsiteen.gtsb.io/"
+
+    [local_server.backends.docs_jp]
+      url = "https://docswebsitejp.gtsb.io/"
+
+    [local_server.backends.docs_kr]
+      url = "https://docswebsitekr.gtsb.io/"
+
+    [local_server.backends.local]
+      url = "http://127.0.0.1:3000"
+
+[scripts]
+  build = "npm exec js-compute-runtime ./src/index.js ./bin/main.wasm"
